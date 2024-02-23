@@ -1,4 +1,5 @@
 # GeoLLM: Evaluating Autonomous Vehicle Geolocalisation through Cross-View Language
+![GeoLLM Pipeline](pipeline.png)
 
 ## Overview
 GeoLLM introduces an innovative approach to cross-view geo-localisation (CVGL), addressing the challenge of geo-positioning autonomous vehicles by correlating ground-level images with geo-tagged satellite imagery. Unlike traditional methods reliant on complex domain projections and low-level geometric features, GeoLLM harnesses the power of zero-shot vision language models (VLMs) to generate interpretable scene descriptions. These descriptions bridge the gap between views, enhancing generalisability across different geographic regions and offering resilience against the variability of real-world driving conditions.
