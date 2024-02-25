@@ -9,11 +9,8 @@ GeoLLM introduces an innovative approach to cross-view geo-localisation (CVGL), 
 - **Robustness to Environmental Dynamics**: By leveraging VLMs, GeoLLM provides consistent performance despite changes in lighting, weather, and urban activity.
 - **CVUK Dataset**: We introduce a comprehensive dataset encompassing diverse environmental conditions, including day-night cycles and seasonal changes, across major UK cities, to better assess CVGL systems.
 
-## Video Demonstrations
-
-To further illustrate the capabilities of GeoLLM and the potential of the CVUK dataset, we've prepared a GIF demonstration. This visualization showcases the system's performance across various environments and conditions, highlighting the practical applications of our research.
-
 ### CVUK Dataset
+The CVUK dataset comprises ~8 hours of driving footage across Liverpool, London, and Woking, UK, captured using a dashboard-mounted stereo camera to ensure a wide field-of-view. Recorded across August 2023, December 2023, and January 2024, the dataset encapsulates a variety of seasonal, environmental, and lighting conditions by including day-to-night transitions. Alongside the footage, we provide GPS coordinates and corresponding aerial views obtained via the Google Maps Static API, with a spatial alignment to the ground footage despite potential GPS positioning errors up to 10 meters.
 
 <p align="center">
   <img src="query_gif.gif" width="400" />
