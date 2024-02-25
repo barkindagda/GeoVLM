@@ -16,8 +16,8 @@ To further illustrate the capabilities of GeoLLM and the potential of the CVUK d
 ### CVUK Dataset
 
 <p align="center">
-  <img src="geollm_action.gif" width="400" />
-  <img src="cvuk_overview.gif" width="400" />
+  <img src="query_gif.gif" width="400" />
+  <img src="satellite_gif.gif" width="400" />
 </p>
 
 ## Research Paper
