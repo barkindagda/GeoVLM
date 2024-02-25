@@ -9,5 +9,16 @@ GeoLLM introduces an innovative approach to cross-view geo-localisation (CVGL), 
 - **Robustness to Environmental Dynamics**: By leveraging VLMs, GeoLLM provides consistent performance despite changes in lighting, weather, and urban activity.
 - **CVUK Dataset**: We introduce a comprehensive dataset encompassing diverse environmental conditions, including day-night cycles and seasonal changes, across major UK cities, to better assess CVGL systems.
 
+## Video Demonstrations
+
+To further illustrate the capabilities of GeoLLM and the potential of the CVUK dataset, we've prepared a GIF demonstration. This visualization showcases the system's performance across various environments and conditions, highlighting the practical applications of our research.
+
+### CVUK Dataset
+
+<p align="center">
+  <img src="geollm_action.gif" width="400" />
+  <img src="cvuk_overview.gif" width="400" />
+</p>
+
 ## Research Paper
 For detailed insights and the methodology of GeoLLM, please refer to the paper
