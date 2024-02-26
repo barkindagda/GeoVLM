@@ -6,8 +6,13 @@ from lavis.models import load_model_and_preprocess
 import openai
 import pandas as pd
 
-image_folder = 'path/to/image/folder'
-final_output_csv = 'path/to/final/output/csv/with/descriptions.csv'
+parser = argparse.ArgumentParser(description='Generate descriptions for images using a VQA model and MoE agent.')
+parser.add_argument('--image_folder', type=str, required=True, help='Path to the folder containing the images.')
+parser.add_argument('--final_output_csv', type=str, required=True, help='Path to the final output CSV file with descriptions.')
+args = parser.parse_args()
+
+# Initialize your API key here if you want to run MoE agent through this set up otherwise you will need to set up MoE locally.
+openai.api_key = 'your-api-key-here'
 
 questions = [
     "What is the predominant environment in the image? (urban/suburban/rural/highway/industrial/natural/dense forestation/water body/mixed)",
@@ -84,11 +89,8 @@ def MoE_agent(prompt):
     )
     return response.choices[0].text.strip()
   
-def main(image_folder,final_output_csv,questions):
-      """
-    Main function to process images and generate descriptions without an intermediate CSV.
-    """
-    # Initialize model and processors here (similar to the first script)
+def main(image_folder, final_output_csv, questions):
+    # Modify the function to use `args.image_folder` and `args.final_output_csv` instead of the hardcoded paths
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model, vis_processors, txt_processors = load_model_and_preprocess(
         name="blip_vqa", model_type="vqav2", is_eval=True, device=device
@@ -104,5 +106,4 @@ def main(image_folder,final_output_csv,questions):
                 VQA_to_description(image_path, questions, model, vis_processors, txt_processors, writer)
 
 if __name__ == "__main__":
-    main(image_folder, final_output_csv, questions)
-
+    main(args.image_folder, args.final_output_csv, questions)
