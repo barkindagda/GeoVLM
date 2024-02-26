@@ -6,13 +6,16 @@ import os
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 from IPython.display import display, Markdown
+import argparse
 
+# Setup argparse for command line arguments
+parser = argparse.ArgumentParser(description='Calculate accuracy based on most similar satellite descriptions.')
+parser.add_argument('--query_csv_path', type=str, required=True, help='Path to your Query image descriptions CSV file.')
+parser.add_argument('--satellite_csv_path', type=str, required=True, help='Path to your Satellite image descriptions CSV file.')
+parser.add_argument('--top_k', type=int, default=1, help='Number of top K similar descriptions to consider.')
+parser.add_argument('--distance_threshold', type=float, default=0.0, help='Distance threshold for matching in kilometers.')
+args = parser.parse_args()
 
-# Constants
-QUERY_CSV_PATH = "path to your Query image descriptions"
-SATELLITE_CSV_PATH = "path to your Satellite image descriptions"
-TOP_K = 1
-DISTANCE_THRESHOLD=0.0
 
 def haversine(lon1, lat1, lon2, lat2):
     """
@@ -73,7 +76,7 @@ def calculate_accuracy(query_csv_path, satellite_csv_path, top_k, distance_thres
 
 
 def main():
-    accuracy = calculate_accuracy(query_csv_path=QUERY_CSV_PATH,satellite_csv_path=SATELLITE_CSV_PATH, top_k=TOP_K, distance_threshold=DISTANCE_THRESHOLD)
+    accuracy = calculate_accuracy(query_csv_path=args.query_csv_path, satellite_csv_path=args.satellite_csv_path, top_k=args.top_k, distance_threshold=args.distance_threshold)
     print(f"The overall accuracy is {accuracy * 100:.2f}%")
 
 if __name__ == "__main__":
