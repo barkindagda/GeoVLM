@@ -23,7 +23,7 @@ if args.mode == 'query':
     model = deit_small_distilled_patch16_224(pretrained=True, mode='query').to('cuda')
     root_dir = args.query_dir
     transform = transforms.Compose([
-        transforms.Resize((1024, 576)),
+        transforms.Resize((1920, 1080)),
         transforms.ToTensor(),
     ])
     batch_size = 5
