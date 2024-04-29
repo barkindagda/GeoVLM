@@ -1,3 +1,8 @@
+## Updates
+
+- **April 28, 2024**: We are currently working on making the CVUK dataset publicly available.
+
+
 # GeoLLM: Evaluating Autonomous Vehicle Geolocalisation through Cross-View Language
 ![GeoLLM Pipeline](pipeline.png)
 
