@@ -25,5 +25,5 @@ python VIGOR_rerank.py --main_csv_path <path_to_VIGOR_top5.csv> --query_csv_path
 To run GeoLLM as an image retrieval model for geo-tagged cross-view images, run the `llm_retrieval.py` with the descriptions generated in Step 1.
 
 ```bash
-python llm_retrieval.py --query_csv_path <path_to_query_csv> --satellite_csv_path <path_to_satellite_csv> --top_k <number_of_top_matches> --distance_threshold <max_distance_in_km>
+python llm_retrieval.py ---query_descriptions_csv_path <path_to_query_csv> --satellite_description_csv_path <path_to_satellite_csv> --top_k <number_of_top_matches> --distance_threshold <max_distance_in_km>
 ```
