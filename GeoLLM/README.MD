@@ -21,3 +21,8 @@ Use the VIGOR_rerank.py to rerank the top-5 images retrieved by a model such as 
 ```bash
 python VIGOR_rerank.py --query_csv_path <path_to_query_csv> --satellite_csv_path <path_to_satellite_csv> --top_k 5
 ```
+### Step 3: Evaluate Retrieval and Geolocalisation Performance: To run GeoLLM as an image retrieval model for geo-tagged cross-view images, run the `llm_retrieval.py` with the descriptions generated in Step 1.
+
+```bash
+python llm_retrieval.py --query_csv_path <path_to_query_csv> --satellite_csv_path <path_to_satellite_csv> --top_k <number_of_top_matches> --distance_threshold <max_distance_in_km>
+```
