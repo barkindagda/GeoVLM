@@ -9,12 +9,15 @@ There are three main steps:
 2. **Description-Based Retrieval and Reranking:** The `VIGOR_rerank.py` is a reranking method that uses cross-view image descriptions to rerank the top-5 retrieval of TransGeo.
 3. **Geographical and Semantic Image Retrieval:** Use `llm_retrieval.py` to evaluate the performance of GeoLLM approach for the descriptions generated in Step 1.
 
-## Step-by-Step Guide
-
 ### Step 1: Generate Descriptions
 First, generate descriptions for your dataset (e.g., VIGOR, CVUK, or your custom dataset) using the `VQA_to_Description.py` script. This will process aerial and ground-level images to create descriptive language outputs.
 
-**Usage:**
 ```bash
 python VQA_to_Description.py --image_folder <path_to_images> --final_output_csv <path_to_output_csv>
+```
+### Step 2: Generate Descriptions
+Use the VIGOR_rerank.py to rerank the top-5 images retrieved by a model such as TransGeo. This step uses GeoLLM as a reranking method based on the descriptions generated in the previous step
+
+```bash
+python VIGOR_rerank.py --query_csv_path <path_to_query_csv> --satellite_csv_path <path_to_satellite_csv> --top_k 5
 ```
