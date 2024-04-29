@@ -12,6 +12,7 @@ parser.add_argument('--final_output_csv', type=str, required=True, help='Path to
 args = parser.parse_args()
 
 # Initialize your API key here if you want to run MoE agent through this set up otherwise you will need to set up MoE locally.
+# You can access open source MoE through Higgingfcae or Anyscale 
 openai.api_key = 'your-api-key-here'
 
 questions = [
@@ -90,7 +91,6 @@ def MoE_agent(prompt):
     return response.choices[0].text.strip()
   
 def main(image_folder, final_output_csv, questions):
-    # Modify the function to use `args.image_folder` and `args.final_output_csv` instead of the hardcoded paths
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model, vis_processors, txt_processors = load_model_and_preprocess(
         name="blip_vqa", model_type="vqav2", is_eval=True, device=device
