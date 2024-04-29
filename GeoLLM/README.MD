@@ -16,10 +16,10 @@ First, generate descriptions for your dataset (e.g., VIGOR, CVUK, or your custom
 python VQA_to_Description.py --image_folder <path_to_images> --final_output_csv <path_to_output_csv>
 ```
 ### Step 2: Generate Descriptions
-Use the VIGOR_rerank.py to rerank the top-5 images retrieved by a model such as TransGeo. This step uses GeoLLM as a reranking method based on the descriptions generated in the previous step
+Use the VIGOR_rerank.py to rerank the top-5 images retrieved by a model such as TransGeo. This step uses GeoLLM as a reranking method based on the descriptions generated in the previous step. This step requires the top 5 ranks by transgeo which can be found in data/VIGOR_top5.csv .
 
 ```bash
-python VIGOR_rerank.py --query_csv_path <path_to_query_csv> --satellite_csv_path <path_to_satellite_csv> --top_k 5
+python VIGOR_rerank.py --main_csv_path <path_to_VIGOR_top5.csv> --query_csv_path <path_to_query_csv> --satellite_csv_path <path_to_satellite_csv> --top_k 5
 ```
 ### Step 3: Evaluate Retrieval and Geolocalisation Performance 
 To run GeoLLM as an image retrieval model for geo-tagged cross-view images, run the `llm_retrieval.py` with the descriptions generated in Step 1.
