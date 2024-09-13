@@ -1,6 +1,6 @@
 
 
-# GeoLLM: Evaluating Autonomous Vehicle Geolocalisation through Cross-View Language
+# GeoVLM: Improving Autonomous Vehicle Geolocalisation using Vision-Language Model Reranking
 ![GeoLLM Pipeline](pipeline.png)
 
 ## Updates
