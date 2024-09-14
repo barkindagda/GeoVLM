@@ -24,4 +24,4 @@ The CVUK dataset comprises ~8 hours of driving footage across Liverpool, London,
 </p>
 
 ## Research Paper
-For detailed insights and the methodology of GeoLLM, please refer to the paper
+For detailed insights and the methodology of GeoVLM, please refer to the paper
