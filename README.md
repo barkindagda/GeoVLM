@@ -1,7 +1,7 @@
 
 
 # GeoVLM: Improving Autonomous Vehicle Geolocalisation using Vision-Language Model Reranking
-![GeoLLM Pipeline](pipeline.png)
+![GeoVLM Pipeline](geovlm_pipeline.png)
 
 ## Updates
 
