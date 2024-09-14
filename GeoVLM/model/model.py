@@ -60,12 +60,10 @@ class ImageEncoder(nn.Module):
         assert num_channels == self.in_dim, "Feature dimension mismatch"
         return feature_map
 
-
 def text_encoder(input_text, model='text-embedding-3-small'):
     client = OpenAI(api_key='GPT_API_KEY')
     text_embedding = client.embeddings.create(input=[input_text], model=model).data[0].embedding
     return torch.tensor(text_embedding)
-
 
 class ReRankingModule(nn.Module):
     def __init__(self, image_dim, text_dim, common_dim, dropout_rate=0.3):
@@ -104,50 +102,6 @@ class ReRankingModule(nn.Module):
         x = self.dropout3(x)
 
         score = self.output(x).squeeze(-1)
+        
+        score = torch.sigmoid(score)
         return score
-
-
-class RECHead(nn.Module):
-    def __init__(self, in_dim, out_dim=3):
-        super().__init__()
-        self.mlp = nn.Sequential(
-            nn.Linear(in_dim, in_dim),
-            nn.GELU(),
-            nn.Linear(in_dim, in_dim),
-            nn.GELU(),
-            nn.Linear(in_dim, in_dim),
-            nn.GELU()
-        )
-
-        self.upsample = nn.Sequential(
-            nn.Conv2d(in_dim, 256, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.Upsample(scale_factor=2, mode='bilinear', align_corners=False),
-            nn.Conv2d(256, 128, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.Upsample(scale_factor=2, mode='bilinear', align_corners=False),
-            nn.Conv2d(128, 64, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.Upsample(scale_factor=2, mode='bilinear', align_corners=False),
-            nn.Conv2d(64, 32, kernel_size=3, padding=1),
-            nn.ReLU(),
-            nn.Upsample(scale_factor=2, mode='bilinear', align_corners=False),
-            nn.Conv2d(32, out_dim, kernel_size=3, padding=1)
-        )
-
-        self.apply(self._init_weights)
-
-    def _init_weights(self, m):
-        if isinstance(m, nn.Linear):
-            trunc_normal_(m.weight, std=.02)
-            if isinstance(m, nn.Linear) and m.bias is not None:
-                nn.init.constant_(m.bias, 0)
-
-    def forward(self, x):
-        # x shape: (batch_size, in_dim, H, W)
-        b, c, h, w = x.shape
-        x = x.permute(0, 2, 3, 1).reshape(b, -1, c)  # (b, H*W, c)
-        x = self.mlp(x)
-        x = x.reshape(b, h, w, c).permute(0, 3, 1, 2)  # (b, c, H, W)
-        x_rec = self.upsample(x)
-        return x_rec
