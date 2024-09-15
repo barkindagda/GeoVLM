@@ -5,7 +5,7 @@
 
 ## Updates
 
-- **April 28, 2024**: We are currently working on making the CVUK dataset publicly available.
+- **September, 2024**: GeoVLM released.
 
 ## Overview
 GeoVLM is a novel vision-language based reranking approach for cross-view geolocalisation. It improves the top-match accuracy of SOTA approaches.
