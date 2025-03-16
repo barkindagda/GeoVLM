@@ -14,7 +14,7 @@ GeoVLM is a novel vision-language based reranking approach for cross-view geoloc
 - **Interpretable Cross-View Geolocalisation**: The first ex-
 plainable reranking approach used for cross-view geolocalisation
 - **Improvement on SOTA performance**:The GeoVLM improves the SOTA performance by reranking top-10 cross-view images. It uses human level of visual reasoning. 
-- **CVUK Dataset**: We introduce a comprehensive dataset encompassing diverse environmental conditions, including day-night cycles and seasonal changes, across major UK cities, to better assess CVGL systems.
+- **CVUK Dataset**: We introduce a comprehensive dataset encompassing diverse environmental conditions, including day-night cycles and seasonal changes, across major UK cities, to better assess CVGL systems. Please access the dataset through this link: https://surreyac-my.sharepoint.com/:u:/r/personal/bd00242_surrey_ac_uk/Documents/CVUK_Dataset.zip?csf=1&web=1&e=DmDllU
 
 ### CVUK Dataset
 The CVUK dataset comprises ~8 hours of driving footage across Liverpool, London, and Woking, UK, captured using a dashboard-mounted stereo camera to ensure a wide field-of-view. Recorded across August 2023, December 2023, and January 2024, the dataset encapsulates a variety of seasonal, environmental, and lighting conditions by including day-to-night transitions. Alongside the footage, we provide GPS coordinates and corresponding aerial views obtained via the Google Maps Static API, with a spatial alignment to the ground footage despite potential GPS positioning errors up to 10 meters.
